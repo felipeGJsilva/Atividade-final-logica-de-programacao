@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 const int MAX_TAREFAS = 100;
@@ -60,6 +61,27 @@ void visualizarTarefa() {
     
 }
 
+void editarTarefa(){
+    int id;
+    cout << "editar tarefa\n";
+    cout << "Digite o id da tarefa: ";
+    cin >> id;
+    for( int i = 0; i < numTarefas; i++){
+        if(ids[i] == id){
+            cout << "novo titulo: ";
+            cin >> titulos[i];
+            cout << "nova descrição: ";
+            cin >> descricao[i];
+            cout << "nova data de vencimento: ";
+            cin >> data[i];
+            cout << "novo Status (1 - pendente, 2 - em Progresso, 3 - concluida): ";
+            cin >> status[i];
+            cout << "tarefa editada com sucesso!\n";
+            return;
+        }
+    }
+}
+
 int main() {
     int opcao;
 
@@ -79,7 +101,11 @@ int main() {
             adicionarTarefa();
         } else if (opcao == 2) {
             visualizarTarefa();
-        } else if (opcao == 0) {
+        } 
+        else if(opcao == 3){
+            editarTarefa();
+        }
+        else if (opcao == 0) {
             cout << "Saindo...\n";
         }
     } while (opcao != 0);

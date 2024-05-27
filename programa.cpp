@@ -122,7 +122,6 @@ void buscarTarefa() {
 
 
 
-
 int main() {
     int opcao;
 
@@ -152,7 +151,7 @@ int main() {
          else if(opcao == 5){
             buscarTarefa();
         }
-       
+        
         
         else if (opcao == 0) {
             cout << "Saindo...\n";

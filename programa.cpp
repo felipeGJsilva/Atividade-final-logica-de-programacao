@@ -151,25 +151,28 @@ void buscarTarefa() {
         cout << " Título: " << titulos[i] << "\n";
     }
     cout << "Título da Tarefa: ";
-    cin.ignore(); 
-    getline(cin, titulo);
+    cin >> titulo;
     
-    bool tarefaEncontrada = false;
-    for (int i = 0; i < numTarefas; i++) {
+     for (int i = 0; i < numTarefas; i++) {
         if (titulos[i] == titulo) {
+         
             cout << "Resultado da busca:\n";
             cout << "ID: " << ids[i] << ", Título: " << titulos[i] << ", Descrição: " << descricao[i] << endl;
-            tarefaEncontrada = true;
-            break;  
+            return; 
         }
     }
 
-    if (!tarefaEncontrada) {
-        cout << "Tarefa não encontrada.\n";
-    }
+    cout << "Tarefa não encontrada.\n";
 }
-void filtrarTarefas(){
-    
+
+
+void filtrarTarefas(int filtrarStatus){
+    cout << "Tarefas";
+    cout << "Selecione o status para realizar o filtro: (1- Pendente , 2- Em progresso, 3- Concluída) ";
+    cin >> filtrarStatus;
+
+
+
 }
 
 int main() {

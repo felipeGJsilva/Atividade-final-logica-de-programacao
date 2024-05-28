@@ -14,7 +14,8 @@ int status[MAX_TAREFAS];
 int numTarefas = 0;
 
 void adicionarTarefa() {
-    cout << "adicionar Nova Tarefa\n";
+    system("clear");
+    cout << "====== Adicionar Nova Tarefa ======\n";
 
     cout << "digite o ID: ";
         cin >> ids[numTarefas];
@@ -43,7 +44,7 @@ void adicionarTarefa() {
 
 void visualizarTarefa() {
      system("clear");
-    cout << "lista de tarefas\n";
+    cout << "====== lista de tarefas ======\n";
         for (int i = 0; i < numTarefas; i++) {
             cout << "ID: " << ids[i] << ", titulo: " << titulos[i] << ", descrição: " << descricao[i]
                 << ", data de vencimento: " << data[i] << ", status: ";
@@ -64,20 +65,53 @@ void visualizarTarefa() {
 }
 
 void editarTarefa(){
+     system("clear");
+     
+     for (int i = 0; i < numTarefas; i++) {
+        cout << "ID: " << ids[i] << ", Título: " << titulos[i] << "\n";
+    }
     int id;
-    cout << "editar tarefa\n";
+    int escolha;
+    cout << " ====== editar tarefa ======\n";
     cout << "Digite o id da tarefa: ";
     cin >> id;
-    for( int i = 0; i < numTarefas; i++){
-        if(ids[i] == id){
-            cout << "novo titulo: ";
-            cin >> titulos[i];
-            cout << "nova descrição: ";
-            cin >> descricao[i];
-            cout << "nova data de vencimento: ";
-            cin >> data[i];
-            cout << "novo Status (1 - pendente, 2 - em Progresso, 3 - concluida): ";
-            cin >> status[i];
+    
+     for (int i = 0; i < numTarefas; i++) {
+        if (ids[i] == id) {
+            int escolha;
+            system("clear");
+            cout << "O que você quer editar? (1 - Novo Título, 2 - Nova Descrição, 3 - Nova Data de Vencimento, 4 - Novo Status, 5 - Editar Tudo): ";
+            cin >> escolha;
+            
+            
+            if (escolha == 1) {
+                cout << "Novo Título: ";
+                cin >> titulos[i];
+                system("clear");
+            } 
+            else if (escolha == 2) {
+                cout << "Nova Descrição: ";
+                cin >> descricao[i];
+                system("clear");
+            } else if (escolha == 3) {
+                cout << "Nova Data de Vencimento: ";
+                cin >> data[i];
+                system("clear");
+            } else if (escolha == 4) {
+                cout << "Novo Status (1 - Pendente, 2 - Em Progresso, 3 - Concluída): ";
+                cin >> status[i];
+                system("clear");
+            } else if (escolha == 5) {
+                cout << "Novo Título: ";
+                cin >> titulos[i];
+                cout << "Nova Descrição: ";
+                cin >> descricao[i];
+                cout << "Nova Data de Vencimento: ";
+                cin >> data[i];
+                cout << "Novo Status (1 - Pendente, 2 - Em Progresso, 3 - Concluída): ";
+                cin >> status[i];
+            }
+            
             cout << "tarefa editada com sucesso!\n";
             return;
         }
@@ -85,6 +119,10 @@ void editarTarefa(){
 }
 
 void removerTarefa() {
+    system("clear");
+    for (int i = 0; i < numTarefas; i++) {
+        cout << "ID: " << ids[i] << ", Título: " << titulos[i] << "\n";
+    }
     int id;
     cout << "Remover Tarefa\n";
     cout << "ID da Tarefa: ";
@@ -104,29 +142,41 @@ void removerTarefa() {
         }
     }
     cout << "Tarefa não encontrada.\n";
+    system("clear");
 }
 void buscarTarefa() {
-    string titulo;
+   string titulo;
     cout << "Buscar Tarefa\n";
-    cin.ignore();
+     for (int i = 0; i < numTarefas; i++) {
+        cout << " Título: " << titulos[i] << "\n";
+    }
     cout << "Título da Tarefa: ";
+    cin.ignore(); 
     getline(cin, titulo);
+    
+    bool tarefaEncontrada = false;
     for (int i = 0; i < numTarefas; i++) {
         if (titulos[i] == titulo) {
             cout << "Resultado da busca:\n";
-            cout << "ID: " << ids[i] << ", Título: " << titulos[i] << ", Descrição: " << descricao[i];
-
+            cout << "ID: " << ids[i] << ", Título: " << titulos[i] << ", Descrição: " << descricao[i] << endl;
+            tarefaEncontrada = true;
+            break;  
         }
     }
+
+    if (!tarefaEncontrada) {
+        cout << "Tarefa não encontrada.\n";
+    }
 }
-
-
+void filtrarTarefas(){
+    
+}
 
 int main() {
     int opcao;
 
     do {
-        cout << "Sistema de Gerenciamento de Tarefas\n";
+        cout << "====== Sistema de Gerenciamento de Tarefas ======\n";
         cout << "1. Adicionar Tarefa\n";
         cout << "2. Visualizar Tarefas\n";
         cout << "3. Editar Tarefa\n";
@@ -154,6 +204,7 @@ int main() {
         
         
         else if (opcao == 0) {
+            system("clear");
             cout << "Saindo...\n";
         }
     } while (opcao != 0);

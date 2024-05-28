@@ -19,7 +19,7 @@ void adicionarTarefa() {
 
     cout << "digite o ID: ";
         cin >> ids[numTarefas];
-    cin.ignore(); // Ignorar o caractere de nova linha deixado pelo `cin`.
+    cin.ignore();
 
     cout << "digite o titulo: ";
         getline(cin, titulos[numTarefas]);
@@ -85,30 +85,30 @@ void editarTarefa(){
             
             
             if (escolha == 1) {
-                cout << "Novo Título: ";
+                cout << "*Novo Título: ";
                 cin >> titulos[i];
                 system("clear");
             } 
             else if (escolha == 2) {
-                cout << "Nova Descrição: ";
+                cout << "*Nova Descrição: ";
                 cin >> descricao[i];
                 system("clear");
             } else if (escolha == 3) {
-                cout << "Nova Data de Vencimento: ";
+                cout << "*Nova Data de Vencimento: ";
                 cin >> data[i];
                 system("clear");
             } else if (escolha == 4) {
-                cout << "Novo Status (1 - Pendente, 2 - Em Progresso, 3 - Concluída): ";
+                cout << "*Novo Status (1 - Pendente, 2 - Em Progresso, 3 - Concluída): ";
                 cin >> status[i];
                 system("clear");
             } else if (escolha == 5) {
-                cout << "Novo Título: ";
+                cout << "*Novo Título: ";
                 cin >> titulos[i];
-                cout << "Nova Descrição: ";
+                cout << "*Nova Descrição: ";
                 cin >> descricao[i];
-                cout << "Nova Data de Vencimento: ";
+                cout << "*Nova Data de Vencimento: ";
                 cin >> data[i];
-                cout << "Novo Status (1 - Pendente, 2 - Em Progresso, 3 - Concluída): ";
+                cout << "*Novo Status (1 - Pendente, 2 - Em Progresso, 3 - Concluída): ";
                 cin >> status[i];
             }
             
@@ -168,17 +168,37 @@ void buscarTarefa() {
 
 void filtrarTarefas(int filtrarStatus){
     cout << "Tarefas";
-    cout << "Selecione o status para realizar o filtro: (1- Pendente , 2- Em progresso, 3- Concluída) ";
-    cin >> filtrarStatus;
 
+    if (filtrarStatus == 1) {
+        cout << "Pendentes:\n";
+    } else if (filtrarStatus == 2) {
+        cout << "Em Progresso:\n";
+    } else if (filtrarStatus == 3) {
+        cout << "Concluídas:\n";
+    }
+    int numFiltroStatus = 0;
+    for(int i = 0; i < numTarefas; i++){
+        if (status[i] == filtrarStatus) {
+            cout << "ID: " << ids[i] << ", Título: " << titulos[i] << ", Descrição: " << descricao[i]
+                 << ", Data de Vencimento: " << data[i] << endl;
+            numFiltroStatus++;
+        }
+    }
+     system("clear");
 
+    if (numFiltroStatus == 0) {
+        cout << "Nenhuma tarefa encontrada com o status selecionado.\n";
+        
+    }
+    
+    }
 
-}
 
 int main() {
     int opcao;
-
+    
     do {
+        
         cout << "====== Sistema de Gerenciamento de Tarefas ======\n";
         cout << "1. Adicionar Tarefa\n";
         cout << "2. Visualizar Tarefas\n";
@@ -204,7 +224,12 @@ int main() {
          else if(opcao == 5){
             buscarTarefa();
         }
-        
+          else if(opcao == 6){
+         int status;
+            cout << "Digite o status para filtrar (1 - Pendente, 2 - Em Progresso, 3 - Concluída): ";
+            cin >> status;
+            filtrarTarefas(status);
+        }
         
         else if (opcao == 0) {
             system("clear");

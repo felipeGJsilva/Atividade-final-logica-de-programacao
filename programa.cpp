@@ -17,20 +17,20 @@ void adicionarTarefa() {
     system("clear");
     cout << "====== Adicionar Nova Tarefa ======\n";
 
-    cout << "digite o ID: ";
+    cout << "*digite o ID: ";
         cin >> ids[numTarefas];
     cin.ignore();
 
-    cout << "digite o titulo: ";
+    cout << "*digite o titulo: ";
         getline(cin, titulos[numTarefas]);
 
-    cout << "digite a descrição: ";
+    cout << "*digite a descrição: ";
         getline(cin, descricao[numTarefas]);
 
-    cout << "digite a data: ";
+    cout << "*digite a data: ";
         getline(cin, data[numTarefas]);
 
-    cout << "status (1 - pendente, 2 - em Progresso, 3 - concluída): ";
+    cout << "*status (1 - pendente, 2 - em Progresso, 3 - concluída): ";
         cin >> status[numTarefas];
 
     if (status[numTarefas] >= 1 && status[numTarefas] <= 3) {
@@ -80,35 +80,35 @@ void editarTarefa(){
         if (ids[i] == id) {
             int escolha;
             system("clear");
-            cout << "O que você quer editar? (1 - Novo Título, 2 - Nova Descrição, 3 - Nova Data de Vencimento, 4 - Novo Status, 5 - Editar Tudo): ";
+            cout << "---    O que você quer editar? (1 - Novo Título, 2 - Nova Descrição, 3 - Nova Data de Vencimento, 4 - Novo Status, 5 - Editar Tudo): ";
             cin >> escolha;
             
             
             if (escolha == 1) {
-                cout << "*Novo Título: ";
+                cout << "---    Novo Título: ";
                 cin >> titulos[i];
                 system("clear");
             } 
             else if (escolha == 2) {
-                cout << "*Nova Descrição: ";
+                cout << "---    Nova Descrição: ";
                 cin >> descricao[i];
                 system("clear");
             } else if (escolha == 3) {
-                cout << "*Nova Data de Vencimento: ";
+                cout << "---    Nova Data de Vencimento: ";
                 cin >> data[i];
                 system("clear");
             } else if (escolha == 4) {
-                cout << "*Novo Status (1 - Pendente, 2 - Em Progresso, 3 - Concluída): ";
+                cout << "---    Novo Status (1 - Pendente, 2 - Em Progresso, 3 - Concluída): ";
                 cin >> status[i];
                 system("clear");
             } else if (escolha == 5) {
-                cout << "*Novo Título: ";
+                cout << "---    Novo Título: ";
                 cin >> titulos[i];
-                cout << "*Nova Descrição: ";
+                cout << "---    Nova Descrição: ";
                 cin >> descricao[i];
-                cout << "*Nova Data de Vencimento: ";
+                cout << "---    Nova Data de Vencimento: ";
                 cin >> data[i];
-                cout << "*Novo Status (1 - Pendente, 2 - Em Progresso, 3 - Concluída): ";
+                cout << "---    Novo Status (1 - Pendente, 2 - Em Progresso, 3 - Concluída): ";
                 cin >> status[i];
             }
             

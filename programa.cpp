@@ -174,7 +174,7 @@ void buscarTarefa() {
 
 
 void filtrarTarefas(int filtrarStatus){
-     system("clear");
+    
     cout << "Tarefas";
 
     if (filtrarStatus == 1) {
@@ -192,7 +192,7 @@ void filtrarTarefas(int filtrarStatus){
             numFiltroStatus++;
         }
     }
-     system("clear");
+   
 
     if (numFiltroStatus == 0) {
         cout << "Nenhuma tarefa encontrada com o status selecionado.\n";

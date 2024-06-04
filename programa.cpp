@@ -61,18 +61,20 @@ void visualizarTarefa() {
             cout << "\n";
         
     }
-    
+     
 }
 
 void editarTarefa(){
      system("clear");
      
-     for (int i = 0; i < numTarefas; i++) {
-        cout << "ID: " << ids[i] << ", Título: " << titulos[i] << "\n";
-    }
+    
     int id;
     int escolha;
     cout << " ====== editar tarefa ======\n";
+    cout << " tarefas existentes: ";
+    for (int i = 0; i < numTarefas; i++) {
+        cout << "ID: " << ids[i] << ", Título: " << titulos[i] << "\n";
+    }
     cout << "Digite o id da tarefa: ";
     cin >> id;
     
@@ -104,12 +106,16 @@ void editarTarefa(){
             } else if (escolha == 5) {
                 cout << "---    Novo Título: ";
                 cin >> titulos[i];
+                 cin.ignore();
                 cout << "---    Nova Descrição: ";
+                 cin.ignore();
                 cin >> descricao[i];
                 cout << "---    Nova Data de Vencimento: ";
                 cin >> data[i];
+                cin.ignore();
                 cout << "---    Novo Status (1 - Pendente, 2 - Em Progresso, 3 - Concluída): ";
                 cin >> status[i];
+                 cin.ignore();
             }
             
             cout << "tarefa editada com sucesso!\n";
@@ -145,6 +151,7 @@ void removerTarefa() {
     system("clear");
 }
 void buscarTarefa() {
+     system("clear");
    string titulo;
     cout << "Buscar Tarefa\n";
      for (int i = 0; i < numTarefas; i++) {
@@ -167,6 +174,7 @@ void buscarTarefa() {
 
 
 void filtrarTarefas(int filtrarStatus){
+     system("clear");
     cout << "Tarefas";
 
     if (filtrarStatus == 1) {
@@ -196,7 +204,7 @@ void filtrarTarefas(int filtrarStatus){
 
 int main() {
     int opcao;
-    
+      system("clear");
     do {
         
         cout << "====== Sistema de Gerenciamento de Tarefas ======\n";

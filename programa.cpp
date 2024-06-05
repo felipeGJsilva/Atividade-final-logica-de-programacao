@@ -22,13 +22,14 @@ void adicionarTarefa() {
     cin.ignore();
 
     cout << "*digite o titulo: ";
-        getline(cin, titulos[numTarefas]);
-
+       cin >> titulos[numTarefas];
+        cin.ignore();
     cout << "*digite a descrição: ";
-        getline(cin, descricao[numTarefas]);
-
+        cin >> descricao[numTarefas];
+        cin.ignore();
     cout << "*digite a data: ";
-        getline(cin, data[numTarefas]);
+        cin >> data[numTarefas];
+        cin.ignore();
 
     cout << "*status (1 - pendente, 2 - em Progresso, 3 - concluída): ";
         cin >> status[numTarefas];
